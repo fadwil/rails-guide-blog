@@ -5,9 +5,9 @@ describe "Admin login" do
     it "I can log in as an admin and get to my dashboard" do
       admin = User.create(username: "admin@blog.com", 
                           password: "admin_pass", 
-                          role: 2)
+                          role: 1)
 
-      visit login_path
+      visit new_session_path
 
       fill_in :username, with: admin.username
       fill_in :password, with: admin.password

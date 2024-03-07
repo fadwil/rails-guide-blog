@@ -8,7 +8,7 @@ RSpec.describe "Logging In" do
 
     click_on "I already have an account"
 
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq(new_session_path)
 
     fill_in :username, with: user.username
     fill_in :password, with: user.password
@@ -23,14 +23,14 @@ RSpec.describe "Logging In" do
   it "cannot log in with bad credentials" do
     user = User.create(username: "funbucket13", password: "test")
 
-    visit login_path
+    visit new_session_path
 
     fill_in :username, with: user.username
     fill_in :password, with: "wrong"
 
     click_on "Log In"
 
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq(new_session_path)
 
     expect(page).to have_content("Sorry, your credentials are bad.")
   end

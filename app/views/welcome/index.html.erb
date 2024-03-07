@@ -1,7 +1,8 @@
-<%= cookies.encrypted[:greeting] %>
+<h1>Welcome!</h1>
+<p>Feel free to explore our articles and join our community.</p>
 <% if current_user %>
-  <%= link_to "Log Out" %>
+  <%= button_to "Log Out", logout_path, method: :delete %>
 <% else %>
   <%= link_to "Register as a User", new_user_path %>
-  <%= link_to "I already have an account", login_path %>
+  <%= link_to "I already have an account", new_session_path %>
 <% end %>
